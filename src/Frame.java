@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -35,6 +36,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 //	Music soundHaha = new Music("haha.wav", false);
 	
 	Background background = new Background();
+	Nimo nimo = new Nimo();
+	Octopus octopus = new Octopus();
 	
 	//frame width/height
 	int width = 600;
@@ -45,7 +48,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		super.paintComponent(g);
 		
 		background.paint(g);
-
+		nimo.paint(g);	
+		octopus.paint(g);
+		
+		
 	}
 	
 	public static void main(String[] arg) {
@@ -54,7 +60,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Duck Hunt");
+		JFrame f = new JFrame("Ocean Matching Game");
 		f.setSize(new Dimension(width, height));
 		f.setBackground(Color.white);
 		f.add(this);
@@ -102,6 +108,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 	@Override
 	public void mousePressed(MouseEvent m) {
+		int mouseX = m.getX();
+		int mouseY = m.getY();
+		
+		if (mouseX >= nimo.getX() && mouseX <= nimo.getX() + nimo.getWidth() &&
+		        mouseY >= nimo.getY()+30 && mouseY <= nimo.getY() + nimo.getHeight()+30) {
+		        nimo.switchDir();
+		}
 		
 	
 		
@@ -137,7 +150,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+	
 	}
 
 }
