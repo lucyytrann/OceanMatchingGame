@@ -48,12 +48,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		super.paintComponent(g);
 		
 		background.paint(g);
-		nimo.paint(g);	
-		octopus.paint(g);
+		
 		
 		if(changeBackground) {
 			background2.paint(g);
 		}
+		nimo.paint(g);	
+		octopus.paint(g);
 		
 	}
 	
