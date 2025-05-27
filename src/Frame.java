@@ -29,31 +29,40 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	long ellapseTime = 0;
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
 	int level = 0;
+	//hi jdasjfkhsdfjghdsajg
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
-	
+
+
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
+	Crab crab = new Crab();
+	Dory dory = new Dory();
+	Seal seal = new Seal();
+	SailFish sailfish = new SailFish();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
 	int height = 600;	
 	boolean changeBackground = false;
-	
-	public void paint(Graphics g) {
+	//hii
 		super.paintComponent(g);
-		
 		background.paint(g);
+		
 		
 		if(changeBackground) {
 			background2.paint(g);
 			nimo.paint(g);	
 			octopus.paint(g);
+			crab.paint(g);
+			dory.paint(g);
+			seal.paint(g);
+			sailfish.paint(g);
 		}
 	}
 	
@@ -123,8 +132,27 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		        nimo.switchDir();
 		}
 		
-	
-		
+		if (mouseX >= octopus.getX() && mouseX <= octopus.getX() + octopus.getWidth() &&
+		        mouseY >= octopus.getY()+30 && mouseY <= octopus.getY() + octopus.getHeight()+30) {
+			octopus.switchDir();
+		}
+
+		if (mouseX >= crab.getX() && mouseX <= crab.getX() + crab.getWidth() &&
+		        mouseY >= crab.getY()+30 && mouseY <= crab.getY() + crab.getHeight()+30) {
+			crab.switchDir();
+		}
+		if (mouseX >= dory.getX() && mouseX <= dory.getX() + dory.getWidth() &&
+		        mouseY >= dory.getY()+30 && mouseY <= dory.getY() + dory.getHeight()+30) {
+			dory.switchDir();
+		}
+		if (mouseX >= seal.getX() && mouseX <= seal.getX() + seal.getWidth() &&
+		        mouseY >= seal.getY()+30 && mouseY <= seal.getY() + seal.getHeight()+30) {
+			seal.switchDir();
+		}
+		if (mouseX >= sailfish.getX() && mouseX <= sailfish.getX() + sailfish.getWidth() &&
+		        mouseY >= sailfish.getY()+30 && mouseY <= sailfish.getY() + sailfish.getHeight()+30) {
+			sailfish.switchDir();
+		}
 	}
 
 	@Override
