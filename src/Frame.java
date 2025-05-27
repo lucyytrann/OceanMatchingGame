@@ -53,6 +53,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	int height = 600;	
 	boolean changeBackground = false;
 	//hii
+	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
@@ -61,10 +62,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		if(changeBackground) {
 			background2.paint(g);
+			nimo.paint(g);	
+			octopus.paint(g);
 		}
-		nimo.paint(g);	
-		octopus.paint(g);
-		
 	}
 	
 	public void changeBackground() {
