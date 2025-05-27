@@ -29,6 +29,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	long ellapseTime = 0;
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
 	int level = 0;
+	//hi jdasjfkhsdfjghdsajg
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
