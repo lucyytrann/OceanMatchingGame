@@ -9,24 +9,24 @@ public class Octopus{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
-	int dir = 0; 					//0-forward, 1-backward, 2-left, 3-right
+	int dir = 1; 					//0-forward, 1-backward, 2-left, 3-right
 									//always backward first
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.0;		//change to scale image
-	double scaleHeight = 1.0; 		//change to scale image
+	double scaleWidth = 1.5;		//change to scale image
+	double scaleHeight = 1.5; 		//change to scale image
 
 	public Octopus() {
 		inFront 	= getImage("/imgs/"+"octopus.png"); //load the image for Tree
-		backWard 	= getImage("/imgs/"+"nimo.png"); //load the image for Tree
+		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
 		
 
 		//alter these
-		width = 40;
-		height = 50;
-		x = 155;
-		y = 10;
+		width = 60;
+		height = 75;
+		x = 200;
+		y = 200;
 		vx = 0;
 		vy = 0;
 		
@@ -77,7 +77,7 @@ public class Octopus{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Octopus.class.getResource(path);
+			URL imageURL = Nimo.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
