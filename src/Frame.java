@@ -47,6 +47,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
+	Crab crab = new Crab();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
@@ -64,6 +65,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			background2.paint(g);
 			nimo.paint(g);	
 			octopus.paint(g);
+			crab.paint(g);
 		}
 	}
 	
@@ -133,8 +135,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		        nimo.switchDir();
 		}
 		
-	
-		
+		if (mouseX >= octopus.getX() && mouseX <= octopus.getX() + octopus.getWidth() &&
+		        mouseY >= octopus.getY()+30 && mouseY <= octopus.getY() + octopus.getHeight()+30) {
+			octopus.switchDir();
+		}
+		if (mouseX >= crab.getX() && mouseX <= crab.getX() + crab.getWidth() &&
+		        mouseY >= crab.getY()+30 && mouseY <= crab.getY() + crab.getHeight()+30) {
+			crab.switchDir();
+		}
 	}
 
 	@Override
