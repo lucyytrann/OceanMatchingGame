@@ -36,20 +36,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
-//hiiiiii
-//this is annoying
-	
-	
-	
-	//hi
 
-	//kekeke
+
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
 	Crab crab = new Crab();
 	Dory dory = new Dory();
 	Seal seal = new Seal();
+	SailFish sailfish = new SailFish();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
@@ -70,6 +65,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			crab.paint(g);
 			dory.paint(g);
 			seal.paint(g);
+			sailfish.paint(g);
 		}
 	}
 	
@@ -155,6 +151,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= seal.getX() && mouseX <= seal.getX() + seal.getWidth() &&
 		        mouseY >= seal.getY()+30 && mouseY <= seal.getY() + seal.getHeight()+30) {
 			seal.switchDir();
+		}
+		if (mouseX >= sailfish.getX() && mouseX <= sailfish.getX() + sailfish.getWidth() &&
+		        mouseY >= sailfish.getY()+30 && mouseY <= sailfish.getY() + sailfish.getHeight()+30) {
+			sailfish.switchDir();
 		}
 	}
 
