@@ -38,7 +38,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
-	
+	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
 	int height = 600;	
@@ -52,7 +52,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		octopus.paint(g);
 		
 		if(changeBackground) {
-			
+			background2.paint(g);
 		}
 		
 	}
@@ -145,7 +145,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		System.out.println(arg0.getKeyCode());
 		
 		if(arg0.getKeyCode() == 10 ) {
-			
+			changeBackground();
 		}
 		
 		
