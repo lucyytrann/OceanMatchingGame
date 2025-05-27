@@ -22,7 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	
+	//hi
+	//please let me commit 
 	//Timer related variables
 	int waveTimer = 5; //each wave of enemies is 20s
 	long ellapseTime = 0;
@@ -39,6 +40,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	
 	
+	//hi
+
+	//kekeke
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
@@ -47,7 +51,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	int width = 600;
 	int height = 600;	
 	boolean changeBackground = false;
-
+	//hii
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
