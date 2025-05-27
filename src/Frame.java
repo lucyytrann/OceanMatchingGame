@@ -34,7 +34,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
-	//nidhi: test to see if commiting works
+
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
@@ -42,7 +42,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//frame width/height
 	int width = 600;
 	int height = 600;	
-	
+	boolean changeBackground = false;
 
 	public void paint(Graphics g) {
 		super.paintComponent(g);
@@ -51,7 +51,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		nimo.paint(g);	
 		octopus.paint(g);
 		
+		if(changeBackground) {
+			
+		}
 		
+	}
+	
+	public void changeBackground() {
+		changeBackground = true;
 	}
 	
 	public static void main(String[] arg) {
@@ -137,6 +144,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
 		
+		if(arg0.getKeyCode() == 10 ) {
+			
+		}
 		
 		
 	}
