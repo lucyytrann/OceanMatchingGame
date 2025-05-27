@@ -17,7 +17,7 @@ public class Background2{
 	double scaleHeight = 1.0; 		//change to scale image
 
 	public Background2() {
-		forward 	= getImage("/imgs/"+"background1.gif"); //load the image for Tree
+		forward 	= getImage("/imgs/"+"background1.png"); //load the image for Tree
 		
 
 		//alter these
