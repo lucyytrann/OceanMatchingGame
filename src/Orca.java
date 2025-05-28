@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Nimo{
+public class Orca{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
@@ -17,8 +17,8 @@ public class Nimo{
 	double scaleWidth = 1.5;		//change to scale image
 	double scaleHeight = 1.5; 		//change to scale image
 
-	public Nimo() {
-		inFront 	= getImage("/imgs/"+"nimo.png"); //load the image for Tree
+	public Orca() {
+		inFront 	= getImage("/imgs/"+"orca.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
 		
 
@@ -26,7 +26,7 @@ public class Nimo{
 		width = 60;
 		height = 75;
 		x = 100;
-		y = 100;
+		y = 300;
 		vx = 0;
 		vy = 0;
 		
@@ -77,7 +77,7 @@ public class Nimo{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Nimo.class.getResource(path);
+			URL imageURL = Orca.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();

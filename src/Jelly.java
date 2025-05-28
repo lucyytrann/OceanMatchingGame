@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Nimo{
+public class Jelly{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
@@ -17,15 +17,15 @@ public class Nimo{
 	double scaleWidth = 1.5;		//change to scale image
 	double scaleHeight = 1.5; 		//change to scale image
 
-	public Nimo() {
-		inFront 	= getImage("/imgs/"+"nimo.png"); //load the image for Tree
+	public Jelly() {
+		inFront 	= getImage("/imgs/"+"jelly.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
 		
 
 		//alter these
 		width = 60;
 		height = 75;
-		x = 100;
+		x = 200;
 		y = 100;
 		vx = 0;
 		vy = 0;
