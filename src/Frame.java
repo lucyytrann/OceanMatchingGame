@@ -44,6 +44,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Crab crab = new Crab();
 	Dory dory = new Dory();
 	Seal seal = new Seal();
+	Orca orca = new Orca();
 	SailFish sailfish = new SailFish();
 	Background2 background2 = new Background2();
 	//frame width/height
@@ -66,6 +67,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			dory.paint(g);
 			seal.paint(g);
 			sailfish.paint(g);
+			orca.paint(g);
 		}
 	}
 	
@@ -155,6 +157,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= sailfish.getX() && mouseX <= sailfish.getX() + sailfish.getWidth() &&
 		        mouseY >= sailfish.getY()+30 && mouseY <= sailfish.getY() + sailfish.getHeight()+30) {
 			sailfish.switchDir();
+		}
+		if (mouseX >= orca.getX() && mouseX <= orca.getX() + orca.getWidth() &&
+		        mouseY >= orca.getY()+30 && mouseY <= orca.getY() + orca.getHeight()+30) {
+			orca.switchDir();
 		}
 	}
 
