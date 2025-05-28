@@ -47,6 +47,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Orca orca = new Orca();
 	SailFish sailfish = new SailFish();
 	Zebra zebra = new Zebra();
+	Puffer puffer = new Puffer();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
@@ -70,6 +71,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			sailfish.paint(g);
 			orca.paint(g);
 			zebra.paint(g);
+			puffer.paint(g);
 		}
 	}
 	
@@ -167,6 +169,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= zebra.getX() && mouseX <= zebra.getX() + zebra.getWidth() &&
 		        mouseY >= zebra.getY()+30 && mouseY <= zebra.getY() + zebra.getHeight()+30) {
 			zebra.switchDir();
+		}
+		if (mouseX >= puffer.getX() && mouseX <= puffer.getX() + puffer.getWidth() &&
+		        mouseY >= puffer.getY()+30 && mouseY <= puffer.getY() + puffer.getHeight()+30) {
+			puffer.switchDir();
 		}
 	}
 
