@@ -46,13 +46,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Seal seal = new Seal();
 	Orca orca = new Orca();
 	SailFish sailfish = new SailFish();
-	Zebra zebra = new Zebra();
+	Zebra zebra	 = new Zebra();
 	Puffer puffer = new Puffer();
 	GreyWhale greywhale = new GreyWhale();
 	Jelly jelly = new Jelly();
 	BlueWhale bluewhale = new BlueWhale();
 	Penguin penguin = new Penguin();
 	UpShark upshark = new UpShark();
+	DownShark downshark = new DownShark();
+	Fishy fishy = new Fishy();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
@@ -82,6 +84,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			bluewhale.paint(g);
 			penguin.paint(g);
 			upshark.paint(g);
+			downshark.paint(g);
+			fishy.paint(g);
 		}
 	}
 	
@@ -203,6 +207,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= upshark.getX() && mouseX <= upshark.getX() + upshark.getWidth() &&
 		        mouseY >= upshark.getY()+30 && mouseY <= upshark.getY() + upshark.getHeight()+30) {
 			upshark.switchDir();
+			
+		}
+		if (mouseX >= downshark.getX() && mouseX <= downshark.getX() + downshark.getWidth() &&
+		        mouseY >= downshark.getY()+30 && mouseY <= downshark.getY() + downshark.getHeight()+30) {
+			downshark.switchDir();
+		}
+		if (mouseX >= fishy.getX() && mouseX <= fishy.getX() + fishy.getWidth() &&
+		        mouseY >= fishy.getY()+30 && mouseY <= fishy.getY() + fishy.getHeight()+30) {
+			fishy.switchDir();
 		}
 	}
 
