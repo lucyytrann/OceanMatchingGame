@@ -52,6 +52,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Jelly jelly = new Jelly();
 	BlueWhale bluewhale = new BlueWhale();
 	Penguin penguin = new Penguin();
+	UpShark upshark = new UpShark();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 600;
@@ -80,6 +81,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			jelly.paint(g);
 			bluewhale.paint(g);
 			penguin.paint(g);
+			upshark.paint(g);
 		}
 	}
 	
@@ -197,6 +199,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= penguin.getX() && mouseX <= penguin.getX() + penguin.getWidth() &&
 		        mouseY >= penguin.getY()+30 && mouseY <= penguin.getY() + penguin.getHeight()+30) {
 			penguin.switchDir();
+		}
+		if (mouseX >= upshark.getX() && mouseX <= upshark.getX() + upshark.getWidth() &&
+		        mouseY >= upshark.getY()+30 && mouseY <= upshark.getY() + upshark.getHeight()+30) {
+			upshark.switchDir();
 		}
 	}
 
