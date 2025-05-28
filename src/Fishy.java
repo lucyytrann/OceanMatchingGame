@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class GreyWhale{
+public class Fishy{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
@@ -17,15 +17,15 @@ public class GreyWhale{
 	double scaleWidth = 1.5;		//change to scale image
 	double scaleHeight = 1.5; 		//change to scale image
 
-	public GreyWhale() {
-		inFront 	= getImage("/imgs/"+"greywhaleCard.png"); //load the image for Tree
+	public Fishy() {
+		inFront 	= getImage("/imgs/"+"fishy.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
 		
 
 		//alter these
 		width = 60;
 		height = 75;
-		x = 100;
+		x = 200;
 		y = 400;
 		vx = 0;
 		vy = 0;
@@ -77,7 +77,7 @@ public class GreyWhale{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = GreyWhale.class.getResource(path);
+			URL imageURL = Fishy.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
