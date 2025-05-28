@@ -47,8 +47,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	SailFish sailfish = new SailFish();
 	Background2 background2 = new Background2();
 	//frame width/height
-	int width = 600;
-	int height = 600;	
+	int width = 700;
+	int height = 800;	
 	boolean changeBackground = false;
 	//hii
 	public void paint(Graphics g) {
