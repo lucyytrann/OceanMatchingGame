@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,7 +31,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	long ellapseTime = 0;
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
 	int level = 0;
-	//hi jdasjfkhsdfjghdsajg
+	//ArrayList stored all the cards
+	ArrayList<Card> cards = new ArrayList<>(); 
+	//ArrayList stored the position of the card
+    ArrayList<Point> shuffledPositions = new ArrayList<>();
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
@@ -71,6 +76,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		if(changeBackground) {
 			background2.paint(g);
+			for (Card card : cards) {
+                card.paint(g);
+            }
+			/* 
 			nimo.paint(g);	
 			octopus.paint(g);
 			crab.paint(g);
@@ -89,6 +98,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			fishy.paint(g);
 			sadfish.paint(g);
 			dolphin.paint(g);
+			*/
 		}
 	}
 	
@@ -112,6 +122,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 		backgroundMusic.play();
 
+		generateShuffledPositions();
+        createCards();
+        assignShuffledPositions();
+
 	
 		
 		//the cursor image must be outside of the src folder
@@ -128,6 +142,42 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
+
+	private void generateShuffledPositions() {
+        int cardWidth = 80;
+        int cardHeight = 100;
+        int padding = 20;
+        int cols = 6;
+        int rows = 6;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                int x = c * (cardWidth + padding) + 60;
+                int y = r * (cardHeight + padding) + 75;
+                shuffledPositions.add(new Point(x, y));
+            }
+        }
+
+        Collections.shuffle(shuffledPositions);
+    }
+
+	private void createCards() {
+        cards.add(new Dolphin()); 
+		cards.add(new Dolphin());
+		cards.add(new BlueWhale()); 
+		cards.add(new BlueWhale());
+		cards.add(new Crab()); 
+		cards.add(new Crab());
+    }
+
+	private void assignShuffledPositions() {
+        for (int i = 0; i < cards.size(); i++) {
+            Point p = shuffledPositions.get(i);
+            cards.get(i).setX(p.x);
+            cards.get(i).setY(p.y);
+        }
+    }
+
 	
 	
 	@Override
@@ -152,7 +202,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void mousePressed(MouseEvent m) {
 		int mouseX = m.getX();
 		int mouseY = m.getY();
-		
+
+		for (Card card : cards) {
+            int cardX = card.getX();
+            int cardY = card.getY();
+            if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
+                mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
+                card.switchDir();
+            }
+        }
+		/* 
 		if (mouseX >= nimo.getX() && mouseX <= nimo.getX() + nimo.getWidth() &&
 		        mouseY >= nimo.getY()+30 && mouseY <= nimo.getY() + nimo.getHeight()+30) {
 		        nimo.switchDir();
@@ -230,6 +289,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		        mouseY >= dolphin.getY()+30 && mouseY <= dolphin.getY() + dolphin.getHeight()+30) {
 			dolphin.switchDir();
 		}
+			*/
 	}
 
 	@Override
