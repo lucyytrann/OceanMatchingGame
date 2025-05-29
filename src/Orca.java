@@ -14,8 +14,8 @@ public class Orca{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.5;		//change to scale image
-	double scaleHeight = 1.5; 		//change to scale image
+	double scaleWidth = 2;		//change to scale image
+	double scaleHeight = 2; 		//change to scale image
 
 	public Orca() {
 		inFront 	= getImage("/imgs/"+"orca.png"); //load the image for Tree
@@ -23,10 +23,10 @@ public class Orca{
 		
 
 		//alter these
-		width = 60;
-		height = 75;
-		x = 100;
-		y = 300;
+		width = 80;
+		height = 100;
+		x = 260;
+		y = 195;
 		vx = 0;
 		vy = 0;
 		

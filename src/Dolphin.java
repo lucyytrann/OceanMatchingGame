@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Octopus{
+public class Dolphin{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
@@ -17,8 +17,8 @@ public class Octopus{
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
 
-	public Octopus() {
-		inFront 	= getImage("/imgs/"+"octopus.png"); //load the image for Tree
+	public Dolphin() {
+		inFront 	= getImage("/imgs/"+"dolphin.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
 		
 
@@ -26,7 +26,7 @@ public class Octopus{
 		width = 80;
 		height = 100;
 		x = 560;
-		y = 75;
+		y = 315;
 		vx = 0;
 		vy = 0;
 		
@@ -77,7 +77,7 @@ public class Octopus{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Nimo.class.getResource(path);
+			URL imageURL = Dolphin.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();

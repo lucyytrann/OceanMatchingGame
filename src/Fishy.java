@@ -14,8 +14,8 @@ public class Fishy{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.5;		//change to scale image
-	double scaleHeight = 1.5; 		//change to scale image
+	double scaleWidth = 2;		//change to scale image
+	double scaleHeight = 2; 		//change to scale image
 
 	public Fishy() {
 		inFront 	= getImage("/imgs/"+"fishy.png"); //load the image for Tree
@@ -23,10 +23,10 @@ public class Fishy{
 		
 
 		//alter these
-		width = 60;
-		height = 75;
-		x = 200;
-		y = 400;
+		width = 80;
+		height = 100;
+		x = 260;
+		y = 315;
 		vx = 0;
 		vy = 0;
 		

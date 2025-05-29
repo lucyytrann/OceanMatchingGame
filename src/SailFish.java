@@ -14,8 +14,8 @@ public class SailFish{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.5;		//change to scale image
-	double scaleHeight = 1.5; 		//change to scale image
+	double scaleWidth = 2;		//change to scale image
+	double scaleHeight = 2; 		//change to scale image
 
 	public SailFish() {
 		inFront 	= getImage("/imgs/"+"sailfish.png"); //load the image for Tree
@@ -23,10 +23,10 @@ public class SailFish{
 		
 
 		//alter these
-		width = 60;
-		height = 75;
-		x = 300;
-		y = 400;
+		width = 80;
+		height = 100;
+		x = 360;
+		y = 315;
 		vx = 0;
 		vy = 0;
 		

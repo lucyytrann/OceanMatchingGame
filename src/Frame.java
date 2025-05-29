@@ -55,6 +55,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	UpShark upshark = new UpShark();
 	DownShark downshark = new DownShark();
 	Fishy fishy = new Fishy();
+	SadFish sadfish = new SadFish();
+	Dolphin dolphin = new Dolphin();
 	Background2 background2 = new Background2();
 	//frame width/height
 	int width = 700;
@@ -85,6 +87,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			upshark.paint(g);
 			downshark.paint(g);
 			fishy.paint(g);
+			sadfish.paint(g);
+			dolphin.paint(g);
 		}
 	}
 	
@@ -215,6 +219,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (mouseX >= fishy.getX() && mouseX <= fishy.getX() + fishy.getWidth() &&
 		        mouseY >= fishy.getY()+30 && mouseY <= fishy.getY() + fishy.getHeight()+30) {
 			fishy.switchDir();
+		}
+
+		if (mouseX >= sadfish.getX() && mouseX <= sadfish.getX() + sadfish.getWidth() &&
+		        mouseY >= sadfish.getY()+30 && mouseY <= sadfish.getY() + sadfish.getHeight()+30) {
+			sadfish.switchDir();
+		}
+
+		if (mouseX >= dolphin.getX() && mouseX <= dolphin.getX() + dolphin.getWidth() &&
+		        mouseY >= dolphin.getY()+30 && mouseY <= dolphin.getY() + dolphin.getHeight()+30) {
+			dolphin.switchDir();
 		}
 	}
 

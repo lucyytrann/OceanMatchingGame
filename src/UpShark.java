@@ -14,8 +14,8 @@ public class UpShark{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.5;		//change to scale image
-	double scaleHeight = 1.5; 		//change to scale image
+	double scaleWidth = 2;		//change to scale image
+	double scaleHeight = 2; 		//change to scale image
 
 	public UpShark() {
 		inFront 	= getImage("/imgs/"+"upshark.png"); //load the image for Tree
@@ -23,10 +23,10 @@ public class UpShark{
 		
 
 		//alter these
-		width = 60;
-		height = 75;
-		x = 400;
-		y = 200;
+		width = 80;
+		height = 100;
+		x = 160;
+		y = 195;
 		vx = 0;
 		vy = 0;
 		

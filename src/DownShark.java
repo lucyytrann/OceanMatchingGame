@@ -14,8 +14,8 @@ public class DownShark{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.5;		//change to scale image
-	double scaleHeight = 1.5; 		//change to scale image
+	double scaleWidth = 2;		//change to scale image
+	double scaleHeight = 2; 		//change to scale image
 
 	public DownShark() {
 		inFront 	= getImage("/imgs/"+"downshark.png"); //load the image for Tree
@@ -25,8 +25,8 @@ public class DownShark{
 		//alter these
 		width = 60;
 		height = 75;
-		x = 200;
-		y = 300;
+		x = 360;
+		y = 195;
 		vx = 0;
 		vy = 0;
 		
