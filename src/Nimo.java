@@ -16,10 +16,12 @@ public class Nimo{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Nimo() {
 		inFront 	= getImage("/imgs/"+"nimo.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
+		name = "nimo";
 		
 
 		//alter these

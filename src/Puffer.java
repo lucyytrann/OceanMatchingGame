@@ -16,10 +16,12 @@ public class Puffer{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Puffer() {
 		inFront 	= getImage("/imgs/"+"puffer.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
+		name = "puffer";
 		
 
 		//alter these

@@ -16,10 +16,12 @@ public class Penguin{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Penguin() {
 		inFront 	= getImage("/imgs/"+"penny.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
+		name = "pengiun";
 		
 
 		//alter these

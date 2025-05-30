@@ -77,8 +77,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		super.paintComponent(g);
 		
 		background.paint(g);
-		
-		
 		if(changeBackground) {
 			background2.paint(g);
 			for (Card card : cards) {
