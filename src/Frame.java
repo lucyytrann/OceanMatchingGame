@@ -153,7 +153,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 int x = c * (cardWidth + padding) + 50;
-                int y = r * (cardHeight + padding) + 30;
+                int y = r * (cardHeight + padding) + 60;
                 shuffledPositions.add(new Point(x, y));
             }
         }
