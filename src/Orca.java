@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Orca{
+public class Orca extends Card{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
