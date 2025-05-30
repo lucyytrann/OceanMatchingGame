@@ -155,8 +155,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                int x = c * (cardWidth + padding) + 60;
-                int y = r * (cardHeight + padding) + 75;
+                int x = c * (cardWidth + padding) + 50;
+                int y = r * (cardHeight + padding) + 60;
                 shuffledPositions.add(new Point(x, y));
             }
         }
@@ -165,12 +165,43 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
     }
 
 	private void createCards() {
-        cards.add(new Dolphin()); 
 		cards.add(new Dolphin());
-		cards.add(new BlueWhale()); 
+		cards.add(new Dolphin());
 		cards.add(new BlueWhale());
-		cards.add(new Crab()); 
+		cards.add(new BlueWhale());
 		cards.add(new Crab());
+		cards.add(new Crab());
+		cards.add(new Dory());
+		cards.add(new Dory());
+		cards.add(new DownShark());
+		cards.add(new DownShark());
+		cards.add(new Fishy());
+		cards.add(new Fishy());
+		cards.add(new GreyWhale());
+		cards.add(new GreyWhale());
+		cards.add(new Jelly());
+		cards.add(new Jelly());
+		cards.add(new Nimo());
+		cards.add(new Nimo());
+		cards.add(new Octopus());
+		cards.add(new Octopus());
+		cards.add(new Orca());
+		cards.add(new Orca());
+		cards.add(new Penguin());
+		cards.add(new Penguin());
+		cards.add(new Puffer());
+		cards.add(new Puffer());
+		cards.add(new SadFish());
+		cards.add(new SadFish());
+		cards.add(new SailFish());
+		cards.add(new SailFish());
+		cards.add(new Seal());
+		cards.add(new Seal());
+		cards.add(new UpShark());
+		cards.add(new UpShark());
+		cards.add(new Zebra());
+		cards.add(new Zebra());
+
     }
 
 	private void assignShuffledPositions() {
