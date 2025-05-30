@@ -16,11 +16,12 @@ public class Seal extends Card{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Seal() {
 		inFront 	= getImage("/imgs/"+"seal.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
-		
+		name = "seal";
 
 		//alter these
 		width = 80;

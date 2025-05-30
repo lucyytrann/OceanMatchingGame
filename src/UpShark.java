@@ -16,11 +16,12 @@ public class UpShark extends Card{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public UpShark() {
 		inFront 	= getImage("/imgs/"+"upshark.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
-		
+		name = "upshark";
 
 		//alter these
 		width = 80;

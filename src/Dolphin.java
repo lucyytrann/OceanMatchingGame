@@ -16,10 +16,12 @@ public class Dolphin extends Card{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Dolphin() {
 		inFront 	= getImage("/imgs/"+"dolphin.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
+		name = "dolphin";
 		
 
 		//alter these
@@ -84,7 +86,15 @@ public class Dolphin extends Card{
 		}
 		return tempImage;
 	}
+
+	public String getName(){
+		return name; 
+	}
 	
+	public void setName(String name){
+		this.name = name;
+	}
+
 	public int getWidth() {
 		return width;
 	}

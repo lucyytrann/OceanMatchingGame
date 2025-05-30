@@ -8,9 +8,14 @@ import java.net.URL;
 public abstract class Card {
     protected int x, y;
     protected int width, height;
+    protected String name;
 
     public abstract void paint(Graphics g);
     public abstract void switchDir();
+
+    public String getName(){
+        return name;
+    }
 
     public int getX() { return x; }
     public void setX(int x) { this.x = x; }
