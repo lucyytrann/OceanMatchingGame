@@ -35,6 +35,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	ArrayList<Card> cards = new ArrayList<>(); 
 	//ArrayList stored the position of the card
     ArrayList<Point> shuffledPositions = new ArrayList<>();
+
+	//Checking matching
+	Card card1 = null;
+	Card card2 = null;
+	boolean delay = false;
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
@@ -178,6 +183,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
         }
     }
 
+	private void checkedMatching(){
+		if (card1.getName().equals(card2.getName())){
+			System.out.println("Matching check!");
+		
+		}
+		else{
+			System.out.println("Does not match!");
+		}
+		//reset
+		card1 = null;
+		card2 = null;
+	}
+
 	
 	
 	@Override
@@ -208,88 +226,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
             int cardY = card.getY();
             if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
-                card.switchDir();
-            }
+
+               //Check to see is it mathcing or not
+				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
+					card1 = card; 
+					card1.switchDir(); // flip it
+				}
+				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
+					card2 = card;
+					card2.switchDir(); //flip
+					checkedMatching();
+				}
+			}
         }
-		/* 
-		if (mouseX >= nimo.getX() && mouseX <= nimo.getX() + nimo.getWidth() &&
-		        mouseY >= nimo.getY()+30 && mouseY <= nimo.getY() + nimo.getHeight()+30) {
-		        nimo.switchDir();
-		}
-		
-		if (mouseX >= octopus.getX() && mouseX <= octopus.getX() + octopus.getWidth() &&
-		        mouseY >= octopus.getY()+30 && mouseY <= octopus.getY() + octopus.getHeight()+30) {
-			octopus.switchDir();
-		}
-
-		if (mouseX >= crab.getX() && mouseX <= crab.getX() + crab.getWidth() &&
-		        mouseY >= crab.getY()+30 && mouseY <= crab.getY() + crab.getHeight()+30) {
-			crab.switchDir();
-		}
-		if (mouseX >= dory.getX() && mouseX <= dory.getX() + dory.getWidth() &&
-		        mouseY >= dory.getY()+30 && mouseY <= dory.getY() + dory.getHeight()+30) {
-			dory.switchDir();
-		}
-		if (mouseX >= seal.getX() && mouseX <= seal.getX() + seal.getWidth() &&
-		        mouseY >= seal.getY()+30 && mouseY <= seal.getY() + seal.getHeight()+30) {
-			seal.switchDir();
-		}
-		if (mouseX >= sailfish.getX() && mouseX <= sailfish.getX() + sailfish.getWidth() &&
-		        mouseY >= sailfish.getY()+30 && mouseY <= sailfish.getY() + sailfish.getHeight()+30) {
-			sailfish.switchDir();
-		}
-		if (mouseX >= orca.getX() && mouseX <= orca.getX() + orca.getWidth() &&
-		        mouseY >= orca.getY()+30 && mouseY <= orca.getY() + orca.getHeight()+30) {
-			orca.switchDir();
-		}
-		if (mouseX >= zebra.getX() && mouseX <= zebra.getX() + zebra.getWidth() &&
-		        mouseY >= zebra.getY()+30 && mouseY <= zebra.getY() + zebra.getHeight()+30) {
-			zebra.switchDir();
-		}
-		if (mouseX >= puffer.getX() && mouseX <= puffer.getX() + puffer.getWidth() &&
-		        mouseY >= puffer.getY()+30 && mouseY <= puffer.getY() + puffer.getHeight()+30) {
-			puffer.switchDir();
-		}
-		if (mouseX >= greywhale.getX() && mouseX <= greywhale.getX() + greywhale.getWidth() &&
-		        mouseY >= greywhale.getY()+30 && mouseY <= greywhale.getY() + greywhale.getHeight()+30) {
-			greywhale.switchDir();
-		}
-		if (mouseX >= jelly.getX() && mouseX <= jelly.getX() + jelly.getWidth() &&
-		        mouseY >= jelly.getY()+30 && mouseY <= jelly.getY() + jelly.getHeight()+30) {
-			jelly.switchDir();
-		}
-		if (mouseX >= bluewhale.getX() && mouseX <= bluewhale.getX() + bluewhale.getWidth() &&
-		        mouseY >= bluewhale.getY()+30 && mouseY <= bluewhale.getY() + bluewhale.getHeight()+30) {
-			bluewhale.switchDir();
-		}
-		if (mouseX >= penguin.getX() && mouseX <= penguin.getX() + penguin.getWidth() &&
-		        mouseY >= penguin.getY()+30 && mouseY <= penguin.getY() + penguin.getHeight()+30) {
-			penguin.switchDir();
-		}
-		if (mouseX >= upshark.getX() && mouseX <= upshark.getX() + upshark.getWidth() &&
-		        mouseY >= upshark.getY()+30 && mouseY <= upshark.getY() + upshark.getHeight()+30) {
-			upshark.switchDir();
-			
-		}
-		if (mouseX >= downshark.getX() && mouseX <= downshark.getX() + downshark.getWidth() &&
-		        mouseY >= downshark.getY()+30 && mouseY <= downshark.getY() + downshark.getHeight()+30) {
-			downshark.switchDir();
-		}
-		if (mouseX >= fishy.getX() && mouseX <= fishy.getX() + fishy.getWidth() &&
-		        mouseY >= fishy.getY()+30 && mouseY <= fishy.getY() + fishy.getHeight()+30) {
-			fishy.switchDir();
-		}
-
-		if (mouseX >= sadfish.getX() && mouseX <= sadfish.getX() + sadfish.getWidth() &&
-		        mouseY >= sadfish.getY()+30 && mouseY <= sadfish.getY() + sadfish.getHeight()+30) {
-			sadfish.switchDir();
-		}
-
-		if (mouseX >= dolphin.getX() && mouseX <= dolphin.getX() + dolphin.getWidth() &&
-		        mouseY >= dolphin.getY()+30 && mouseY <= dolphin.getY() + dolphin.getHeight()+30) {
-			dolphin.switchDir();
-		}
-			*/
 	}
 
 	@Override
