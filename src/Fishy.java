@@ -16,10 +16,12 @@ public class Fishy extends Card{
 	int vx, vy;						//movement variables
 	double scaleWidth = 2;		//change to scale image
 	double scaleHeight = 2; 		//change to scale image
+	String name;
 
 	public Fishy() {
 		inFront 	= getImage("/imgs/"+"fishy.png"); //load the image for Tree
 		backWard 	= getImage("/imgs/"+"backCard.png"); //load the image for Tree
+		name = "fishy";
 		
 
 		//alter these
@@ -83,6 +85,14 @@ public class Fishy extends Card{
 			e.printStackTrace();
 		}
 		return tempImage;
+	}
+
+	public String getName(){
+		return name; 
+	}
+	
+	public void setName(String name){
+		this.name = name;
 	}
 	
 	public int getWidth() {

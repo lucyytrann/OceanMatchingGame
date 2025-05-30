@@ -145,11 +145,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
     }
 
 	private void createCards() {
+        cards.add(new Dolphin()); 
 		cards.add(new Dolphin());
-		cards.add(new Dolphin());
+		cards.add(new BlueWhale()); 
 		cards.add(new BlueWhale());
-		cards.add(new BlueWhale());
-		cards.add(new Crab());
+		cards.add(new Crab()); 
 		cards.add(new Crab());
 		cards.add(new Dory());
 		cards.add(new Dory());
@@ -194,7 +194,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	private void checkedMatching(){
 		if (card1.getName().equals(card2.getName())){
 			System.out.println("Matching check!");
-		
 		}
 		else{
 			System.out.println("Does not match!");
