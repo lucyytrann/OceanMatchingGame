@@ -30,16 +30,18 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	int waveTimer = 5; //each wave of enemies is 20s
 	long ellapseTime = 0;
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
-	int level = 0;
+	int level = 3;
+	int totalMove;
 	//ArrayList stored all the cards
 	ArrayList<Card> cards = new ArrayList<>(); 
 	//ArrayList stored the position of the card
     ArrayList<Point> shuffledPositions = new ArrayList<>();
+	//ArrayList stored matched cards
+	ArrayList<Card> usedCards = new ArrayList<>();
 
 	//Checking matching
 	Card card1 = null;
 	Card card2 = null;
-	boolean delay = false;
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
@@ -82,26 +84,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			for (Card card : cards) {
                 card.paint(g);
             }
-			/* 
-			nimo.paint(g);	
-			octopus.paint(g);
-			crab.paint(g);
-			dory.paint(g);
-			seal.paint(g);
-			sailfish.paint(g);
-			orca.paint(g);
-			zebra.paint(g);
-			puffer.paint(g);
-			greywhale.paint(g);
-			jelly.paint(g);
-			bluewhale.paint(g);
-			penguin.paint(g);
-			upshark.paint(g);
-			downshark.paint(g);
-			fishy.paint(g);
-			sadfish.paint(g);
-			dolphin.paint(g);
-			*/
+			
 		}
 	}
 	
@@ -125,10 +108,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 		backgroundMusic.play();
 
-		generateShuffledPositions();
-        createCards();
-        assignShuffledPositions();
-
+		
 	
 		
 		//the cursor image must be outside of the src folder
@@ -145,63 +125,120 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
+	private void createCards() {
+		if(level == 1){
+			cards.add(new Dolphin()); 
+			cards.add(new Dolphin());
+			cards.add(new BlueWhale()); 
+			cards.add(new BlueWhale());
+			cards.add(new Crab()); 
+			cards.add(new Crab());
+			cards.add(new Dory());
+			cards.add(new Dory());
+		}
+		else if(level == 2){
+			cards.add(new Dolphin()); 
+			cards.add(new Dolphin());
+			cards.add(new BlueWhale()); 
+			cards.add(new BlueWhale());
+			cards.add(new Crab()); 
+			cards.add(new Crab());
+			cards.add(new Dory());
+			cards.add(new Dory());
+			cards.add(new Fishy());
+			cards.add(new Fishy());
+			cards.add(new GreyWhale());
+			cards.add(new GreyWhale());
+			cards.add(new Jelly());
+			cards.add(new Jelly());
+			cards.add(new Nimo());
+			cards.add(new Nimo());
+		}
+		else if (level == 3){
+			cards.add(new Dolphin()); 
+			cards.add(new Dolphin());
+			cards.add(new BlueWhale()); 
+			cards.add(new BlueWhale());
+			cards.add(new Crab()); 
+			cards.add(new Crab());
+			cards.add(new Dory());
+			cards.add(new Dory());
+			cards.add(new DownShark());
+			cards.add(new DownShark());
+			cards.add(new Fishy());
+			cards.add(new Fishy());
+			cards.add(new GreyWhale());
+			cards.add(new GreyWhale());
+			cards.add(new Jelly());
+			cards.add(new Jelly());
+			cards.add(new Nimo());
+			cards.add(new Nimo());
+			cards.add(new Octopus());
+			cards.add(new Octopus());
+			cards.add(new Orca());
+			cards.add(new Orca());
+			cards.add(new Penguin());
+			cards.add(new Penguin());
+			cards.add(new Puffer());
+			cards.add(new Puffer());
+			cards.add(new SadFish());
+			cards.add(new SadFish());
+			cards.add(new SailFish());
+			cards.add(new SailFish());
+			cards.add(new Seal());
+			cards.add(new Seal());
+			cards.add(new UpShark());
+			cards.add(new UpShark());
+			cards.add(new Zebra());
+			cards.add(new Zebra());
+		}
+    }
 
 	private void generateShuffledPositions() {
         int cardWidth = 80;
         int cardHeight = 100;
         int padding = 20;
-        int cols = 6;
-        int rows = 6;
+		int cols;
+		int rows;
 
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                int x = c * (cardWidth + padding) + 50;
-                int y = r * (cardHeight + padding) + 60;
-                shuffledPositions.add(new Point(x, y));
-            }
-        }
-
+        shuffledPositions.clear();
+		if (level == 1){
+			rows = 2;
+			cols = 4;
+			for (int r = 0; r < rows; r++) {
+				for (int c = 0; c < cols; c++) {
+					int x = c * (cardWidth + padding) + 150;
+					int y = r * (cardHeight + padding) + 300;
+					shuffledPositions.add(new Point(x, y));
+				}
+			}
+		}
+		else if (level == 2){
+			rows = 4;
+			cols = 4;
+			for (int r = 0; r < rows; r++) {
+				for (int c = 0; c < cols; c++) {
+					int x = c * (cardWidth + padding) + 150;
+					int y = r * (cardHeight + padding) + 180;
+					shuffledPositions.add(new Point(x, y));
+				}
+			}
+		}
+		else if (level == 3){
+			rows = 6;
+			cols = 6;
+			for (int r = 0; r < rows; r++) {
+				for (int c = 0; c < cols; c++) {
+					int x = c * (cardWidth + padding) + 50;
+					int y = r * (cardHeight + padding) + 60;
+					shuffledPositions.add(new Point(x, y));
+				}
+			}
+		}
         Collections.shuffle(shuffledPositions);
     }
 
-	private void createCards() {
-        cards.add(new Dolphin()); 
-		cards.add(new Dolphin());
-		cards.add(new BlueWhale()); 
-		cards.add(new BlueWhale());
-		cards.add(new Crab()); 
-		cards.add(new Crab());
-		cards.add(new Dory());
-		cards.add(new Dory());
-		cards.add(new DownShark());
-		cards.add(new DownShark());
-		cards.add(new Fishy());
-		cards.add(new Fishy());
-		cards.add(new GreyWhale());
-		cards.add(new GreyWhale());
-		cards.add(new Jelly());
-		cards.add(new Jelly());
-		cards.add(new Nimo());
-		cards.add(new Nimo());
-		cards.add(new Octopus());
-		cards.add(new Octopus());
-		cards.add(new Orca());
-		cards.add(new Orca());
-		cards.add(new Penguin());
-		cards.add(new Penguin());
-		cards.add(new Puffer());
-		cards.add(new Puffer());
-		cards.add(new SadFish());
-		cards.add(new SadFish());
-		cards.add(new SailFish());
-		cards.add(new SailFish());
-		cards.add(new Seal());
-		cards.add(new Seal());
-		cards.add(new UpShark());
-		cards.add(new UpShark());
-		cards.add(new Zebra());
-		cards.add(new Zebra());
-    }
+	
 
 	private void assignShuffledPositions() {
         for (int i = 0; i < cards.size(); i++) {
@@ -212,8 +249,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
     }
 
 	private void checkedMatching(){
-		if (card1.getName().equals(card2.getName())){
+		if (card1.getName().equals(card2.getName()) && card1 != card2){ //this to prevent the layer click the same card twice
 			System.out.println("Matching check!");
+			usedCards.add(card1);
+			usedCards.add(card2);
 		}
 		else{
 			System.out.println("Does not match!");
@@ -223,9 +262,63 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//reset
 		card1 = null;
 		card2 = null;
+		if(checkedWin()){
+			newLevel();
+		}
 	}
 
-	
+	private void newLevel(){
+		emptyUsedCards();
+		cards.clear();
+		shuffledPositions.clear();
+		createCards(); 
+		generateShuffledPositions(); 
+		assignShuffledPositions(); 
+
+		card1 = null;
+		card2 = null;
+
+		for (Card card : cards) {
+			card.switchDir(); // ensure card is face down
+			if (card.getDir() == 0) {
+				card.switchDir(); // flip again if needed
+			}
+		}
+
+		if(level == 1){
+			totalMove = 20;
+		}
+		else if(level == 2){
+			totalMove = 40;
+		}
+		else if(level == 3){
+			totalMove = 80;
+		}
+	}
+
+	private boolean checkedWin(){ //checked that all cards are checked
+		if(level == 1 && usedCards.size() == 8){
+			level = 2;
+			return true;
+			
+		}
+		else if(level == 2 && usedCards.size() == 16){
+			level = 3;
+			return true;
+			
+		}
+		else if(level == 3 && usedCards.size() == 36){
+			level = 1;
+			return true;
+		}
+		return false;
+	}
+
+	private void emptyUsedCards(){
+		for (int i = usedCards.size() - 1; i >= 0; i--) {
+			usedCards.remove(i);
+		}
+	}
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
@@ -260,10 +353,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
+					totalMove--;
+					System.out.println(totalMove);
 				}
 				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
 					card2 = card;
 					card2.switchDir(); //flip
+					totalMove--;
+					System.out.println(totalMove);
 					//Add the delay timer (Chatgpt helper method heheheheheheh <333333)
 					Timer t = new Timer(1000, new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
@@ -296,6 +393,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		System.out.println(arg0.getKeyCode());
 		
 		if(arg0.getKeyCode() == 10 ) {
+			level = 1;
+			newLevel();
 			changeBackground();
 		}
 		
