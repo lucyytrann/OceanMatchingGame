@@ -24,7 +24,7 @@ public abstract class Card {
     public void setX(int x) { 
     	this.x = x; 
     }
-
+   
     public int getY() { 
     	return y;
     }
