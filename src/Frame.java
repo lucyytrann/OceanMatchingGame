@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	//hi
+	//hi     
 	//please let me commit 
 	//Timer related variables
 	int waveTimer = 5; //each wave of enemies is 20s
@@ -82,26 +82,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			for (Card card : cards) {
                 card.paint(g);
             }
-			/* 
-			nimo.paint(g);	
-			octopus.paint(g);
-			crab.paint(g);
-			dory.paint(g);
-			seal.paint(g);
-			sailfish.paint(g);
-			orca.paint(g);
-			zebra.paint(g);
-			puffer.paint(g);
-			greywhale.paint(g);
-			jelly.paint(g);
-			bluewhale.paint(g);
-			penguin.paint(g);
-			upshark.paint(g);
-			downshark.paint(g);
-			fishy.paint(g);
-			sadfish.paint(g);
-			dolphin.paint(g);
-			*/
 		}
 	}
 	
@@ -115,7 +95,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Ocean Matching Game");
+		JFrame f = new JFrame("Ocean Matching Game!");
 		f.setSize(new Dimension(width, height));
 		f.setBackground(Color.white);
 		f.add(this);
@@ -201,7 +181,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		cards.add(new UpShark());
 		cards.add(new Zebra());
 		cards.add(new Zebra());
-
     }
 
 	private void assignShuffledPositions() {
@@ -219,6 +198,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		else{
 			System.out.println("Does not match!");
+			card1.switchDir();
+			card2.switchDir();
 		}
 		//reset
 		card1 = null;
@@ -256,7 +237,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
             if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
 
-               //Check to see is it mathcing or not
+               //Check to see is it matching or not
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
