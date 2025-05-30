@@ -235,7 +235,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
 					card2 = card;
 					card2.switchDir(); //flip
-					checkedMatching();
+					//Add the delay timer (Chatgpt helper method heheheheheheh <333333)
+					Timer t = new Timer(1000, new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							checkedMatching();
+							
+							((Timer)e.getSource()).stop();
+						}
+					});
+					t.setRepeats(false);
+					t.start();
 				}
 			}
         }
