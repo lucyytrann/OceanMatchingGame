@@ -86,6 +86,14 @@ public class Seal extends Card{
 		return tempImage;
 	}
 	
+	public String getName(){
+		return name; 
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+
 	public int getWidth() {
 		return width;
 	}
