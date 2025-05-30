@@ -239,9 +239,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 					Timer t = new Timer(1000, new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
-							
 							((Timer)e.getSource()).stop();
-						}
+						} 
 					});
 					t.setRepeats(false);
 					t.start();
