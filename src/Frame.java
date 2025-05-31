@@ -70,26 +70,49 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	SadFish sadfish = new SadFish();
 	Dolphin dolphin = new Dolphin();
 	Background2 background2 = new Background2();
+	Score score = new Score();
+	Home home = new Home();
 	//frame width/height
 	int width = 700;
 	int height = 800;	
 	boolean changeBackground = false;
+	boolean resetGame = false;
 	//hii
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
-		background.paint(g);
-		if(changeBackground) {
+		if (resetGame) {
+			background.paint(g);  // only draw the background
+		} else if (changeBackground) {
 			background2.paint(g);
+			home.paint(g);
+			score.paint(g);
 			for (Card card : cards) {
-                card.paint(g);
-            }
-			
+				card.paint(g);
+			}
+		} else {
+			background.paint(g);
 		}
+		
 	}
 	
 	public void changeBackground() {
 		changeBackground = true;
+	}
+
+	public void resetGame(){
+		cards.clear();
+		usedCards.clear();
+		shuffledPositions.clear();
+		card1 = null;
+		card2 = null;
+		level = 1;
+		totalMove = 20;
+		createCards();
+		generateShuffledPositions();
+		assignShuffledPositions();
+		resetGame = false;
+		changeBackground = false;
 	}
 	
 	public static void main(String[] arg) {
@@ -342,6 +365,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void mousePressed(MouseEvent m) {
 		int mouseX = m.getX();
 		int mouseY = m.getY();
+
+		if (mouseX >= home.getX() && mouseX <= home.getX() + home.getWidth() &&
+                mouseY >= home.getY() + 30 && mouseY <= home.getY() + home.getHeight() + 30){
+					resetGame();
+		}
 
 		for (Card card : cards) {
             int cardX = card.getX();
