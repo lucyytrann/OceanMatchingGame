@@ -44,7 +44,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Card card2 = null;
 	
 	
-	Font myFont = new Font("Courier", Font.BOLD, 40);
+	Font myFont = new Font("Courier", Font.BOLD, 25);
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
@@ -70,29 +70,42 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	SadFish sadfish = new SadFish();
 	Dolphin dolphin = new Dolphin();
 	Background2 background2 = new Background2();
-	Score score = new Score();
+	Level levels = new Level();
+	Move move = new Move();
 	Home home = new Home();
+	GameOver gameOverBackGround = new GameOver();
 	//frame width/height
 	int width = 700;
 	int height = 800;	
 	boolean changeBackground = false;
 	boolean resetGame = false;
+	boolean gameOver = false;
 	//hii
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
 		if (resetGame) {
-			background.paint(g);  // only draw the background
+			background.paint(g);  
 		} else if (changeBackground) {
 			background2.paint(g);
 			home.paint(g);
-			score.paint(g);
+			levels.paint(g);
+			move.paint(g);
+			// ADD TEXT
+			g.setFont(myFont);
+			g.setColor(new Color(251, 173, 172));
+			g.drawString("" + level, 673, 25);
+			g.drawString("" + totalMove, 658, 55);
 			for (Card card : cards) {
 				card.paint(g);
 			}
 		} else {
 			background.paint(g);
 		}
+		if (gameOver) { 
+			gameOverBackGround.paint(g);
+		}  
+		
 		
 	}
 	
@@ -112,6 +125,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		generateShuffledPositions();
 		assignShuffledPositions();
 		resetGame = false;
+		gameOver = false;
 		changeBackground = false;
 	}
 	
@@ -288,6 +302,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(checkedWin()){
 			newLevel();
 		}
+		
+		
 	}
 
 	private void newLevel(){
@@ -336,6 +352,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		return false;
 	}
+
 
 	private void emptyUsedCards(){
 		for (int i = usedCards.size() - 1; i >= 0; i--) {
@@ -394,12 +411,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
 							((Timer)e.getSource()).stop();
+							if (totalMove <= 0 && !checkedWin()) {
+								gameOver = true;
+							}
 						} 
 					});
 					t.setRepeats(false);
 					t.start();
 				}
 			}
+			
         }
 	}
 
@@ -424,6 +445,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			level = 1;
 			newLevel();
 			changeBackground();
+		}
+		else if(arg0.getKeyCode() == 32){
+			if(gameOver){
+				resetGame();
+			}
 		}
 		
 		

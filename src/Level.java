@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Score{
+public class Level{
 	private Image inFront, backWard, left, right; 	
 	private AffineTransform tx;
 	
@@ -18,16 +18,16 @@ public class Score{
 	double scaleHeight = 1; 		//change to scale image
 	
 
-	public Score() {
-		inFront 	= getImage("/imgs/"+"score.png"); //load the image for Tree
+	public Level() {
+		inFront 	= getImage("/imgs/"+"level.png"); //load the image for Tree
 	
 		
 
 		//alter these
 		width = 52;
 		height = 10;
-		x = 600;
-		y = 25;
+		x = 550;
+		y = 6;
 		vx = 0;
 		vy = 0;
 		
