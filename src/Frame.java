@@ -74,6 +74,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Move move = new Move();
 	Home home = new Home();
 	GameOver gameOverBackGround = new GameOver();
+	LoseGame loseGameBackground = new LoseGame();
 	//frame width/height
 	int width = 700;
 	int height = 800;	
