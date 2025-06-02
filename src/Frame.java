@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	//hi
+	//hi     
 	//please let me commit 
 	//Timer related variables
 	int waveTimer = 5; //each wave of enemies is 20s
@@ -97,10 +97,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			g.drawString("" + level, 673, 25);
 			g.drawString("" + totalMove, 658, 55);
 			for (Card card : cards) {
-				card.paint(g);
-			}
-		} else {
-			background.paint(g);
+                card.paint(g);
+            }
 		}
 		if (gameOver) { 
 			gameOverBackGround.paint(g);
@@ -135,7 +133,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Ocean Matching Game");
+		JFrame f = new JFrame("Ocean Matching Game!");
 		f.setSize(new Dimension(width, height));
 		f.setBackground(Color.white);
 		f.add(this);
@@ -394,7 +392,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
             if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
 
-               //Check to see is it mathcing or not
+               //Check to see is it matching or not
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
