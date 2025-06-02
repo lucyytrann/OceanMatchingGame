@@ -398,7 +398,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
-					totalMove--;
+					
 					System.out.println(totalMove);
 				}
 				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
