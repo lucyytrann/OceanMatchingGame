@@ -78,7 +78,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//frame width/height
 	int width = 700;
 	int height = 800;	
-	boolean changeBackground = false;
+	boolean winBackground = false;
+	boolean loseBackground = false;
 	boolean resetGame = false;
 	boolean gameOver = false;
 	//hii
@@ -87,7 +88,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		if (resetGame) {
 			background.paint(g);  
-		} else if (changeBackground) {
+		} else if (winBackground) {
 			background2.paint(g);
 			home.paint(g);
 			levels.paint(g);
@@ -110,8 +111,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 	}
 	
-	public void changeBackground() {
-		changeBackground = true;
+	public void loseBackground() {
+		loseBackground = true;
+	}
+	public void winBackground() {
+		winBackground = true;
 	}
 
 	public void resetGame(){
@@ -127,7 +131,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		assignShuffledPositions();
 		resetGame = false;
 		gameOver = false;
-		changeBackground = false;
+		winBackground = false;
+		loseBackground = false;
 	}
 	
 	public static void main(String[] arg) {
@@ -326,7 +331,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 
 		if(level == 1){
-			totalMove = 20;
+			totalMove = 5;
 		}
 		else if(level == 2){
 			totalMove = 40;
@@ -445,7 +450,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(arg0.getKeyCode() == 10 ) {
 			level = 1;
 			newLevel();
-			changeBackground();
+			winBackground();
 		}
 		else if(arg0.getKeyCode() == 32){
 			if(gameOver){
