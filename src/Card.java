@@ -14,6 +14,10 @@ public abstract class Card {
     public abstract void paint(Graphics g);
     public abstract void switchDir();
 
+    public int getDir(){
+        return dir;
+    }
+
     public String getName(){
         return name;
     }
