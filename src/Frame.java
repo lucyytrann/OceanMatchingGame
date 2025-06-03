@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	//hi
+	//hi     
 	//please let me commit 
 	//Timer related variables
 	int waveTimer = 5; //each wave of enemies is 20s
@@ -74,12 +74,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Move move = new Move();
 	Home home = new Home();
 	GameOver gameOverBackGround = new GameOver();
-	LoseGame loseGameBackground = new LoseGame();
 	//frame width/height
 	int width = 700;
 	int height = 800;	
-	boolean winBackground = false;
-	boolean loseBackground = false;
+	boolean changeBackground = false;
 	boolean resetGame = false;
 	boolean gameOver = false;
 	//hii
@@ -88,7 +86,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		if (resetGame) {
 			background.paint(g);  
-		} else if (winBackground) {
+		} else if (changeBackground) {
 			background2.paint(g);
 			home.paint(g);
 			levels.paint(g);
@@ -99,29 +97,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			g.drawString("" + level, 673, 25);
 			g.drawString("" + totalMove, 658, 55);
 			for (Card card : cards) {
-<<<<<<< HEAD
-				card.paint(g);
-			}
-		} else {
-			background.paint(g);
-=======
                 card.paint(g);
             }
 		}
 		else{
 			background.paint(g);  
->>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 		}
 		if (gameOver) { 
 			gameOverBackGround.paint(g);
 		}  
 	}
 	
-	public void loseBackground() {
-		loseBackground = true;
-	}
-	public void winBackground() {
-		winBackground = true;
+	public void changeBackground() {
+		changeBackground = true;
 	}
 
 	public void resetGame(){
@@ -137,8 +125,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		assignShuffledPositions();
 		resetGame = false;
 		gameOver = false;
-		winBackground = false;
-		loseBackground = false;
+		changeBackground = false;
 	}
 	
 	public static void main(String[] arg) {
@@ -147,7 +134,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Ocean Matching Game");
+		JFrame f = new JFrame("Ocean Matching Game!");
 		f.setSize(new Dimension(width, height));
 		f.setBackground(Color.white);
 		f.add(this);
@@ -342,7 +329,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 
 		if(level == 1){
-			totalMove = 5;
+			totalMove = 20;
 		}
 		else if(level == 2){
 			totalMove = 40;
@@ -410,14 +397,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
             if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
 
-               //Check to see is it mathcing or not
+               //Check to see is it matching or not
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
-<<<<<<< HEAD
-					
-=======
->>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 					System.out.println(totalMove);
 				}
 				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
@@ -460,7 +443,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(arg0.getKeyCode() == 10 ) {
 			level = 1;
 			newLevel();
-			winBackground();
+			changeBackground();
 		}
 		else if(arg0.getKeyCode() == 32){
 			if(gameOver){
