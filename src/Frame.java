@@ -73,10 +73,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Move move = new Move();
 	Home home = new Home();
 	GameOver gameOverBackGround = new GameOver();
-<<<<<<< HEAD
-=======
+
+
 	LoseGame loseGameBackGround = new LoseGame();
->>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 	//frame width/height
 	int width = 700;
 	int height = 800;	
@@ -133,10 +132,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		resetGame = false;
 		gameOver = false;
 		changeBackground = false;
-<<<<<<< HEAD
-=======
+
 		gameLose = false;
->>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 	}
 	
 	public static void main(String[] arg) {
