@@ -22,14 +22,6 @@ public abstract class Card {
         return name;
     }
 
-<<<<<<< HEAD
-    public int getDir() {
-        return dir;
-    }
-
-    public int getX() { return x; }
-    public void setX(int x) { this.x = x; }
-=======
     public int getX() { 
     	return x; 
     }
@@ -45,11 +37,14 @@ public abstract class Card {
     public void setY(int y) { 
     	this.y = y;
     }
->>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 
-    public int getY() { return y; }
-    public void setY(int y) { this.y = y; }
-
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
+    public int getWidth() {
+    	return width; 
+    }
+    
+    public int getHeight() { 
+    	return height;
+    }
+    
+    
 }
