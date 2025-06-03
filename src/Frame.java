@@ -16,7 +16,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -74,12 +73,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Move move = new Move();
 	Home home = new Home();
 	GameOver gameOverBackGround = new GameOver();
+	LoseGame loseGameBackGround = new LoseGame();
 	//frame width/height
 	int width = 700;
 	int height = 800;	
 	boolean changeBackground = false;
 	boolean resetGame = false;
 	boolean gameOver = false;
+	boolean gameLose = false;
 	//hii
 	public void paint(Graphics g) {
 		super.paintComponent(g);
@@ -106,6 +107,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if (gameOver) { 
 			gameOverBackGround.paint(g);
 		}  
+		if(gameLose){
+			loseGameBackGround.paint(g);
+		}
 	}
 	
 	public void changeBackground() {
@@ -126,6 +130,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		resetGame = false;
 		gameOver = false;
 		changeBackground = false;
+		gameLose = false;
 	}
 	
 	public static void main(String[] arg) {
@@ -305,9 +310,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			} else {
 				newLevel();
 			}
-		}
-		
-		
+		}	
 	}
 
 	private void newLevel(){
@@ -413,6 +416,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
 							((Timer)e.getSource()).stop();
+							if (totalMove <= 0 && !checkedWin()) {
+								gameLose = true;
+							}
 						} 
 					});
 					t.setRepeats(false);
