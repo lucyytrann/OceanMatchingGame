@@ -455,6 +455,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			if(gameOver){
 				resetGame();
 			}
+			if(gameLose){
+				resetGame();
+			}
 		}
 		
 		
