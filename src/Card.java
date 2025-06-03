@@ -14,16 +14,38 @@ public abstract class Card {
     public abstract void paint(Graphics g);
     public abstract void switchDir();
 
+    public int getDir(){
+        return dir;
+    }
+
     public String getName(){
         return name;
     }
 
+<<<<<<< HEAD
     public int getDir() {
         return dir;
     }
 
     public int getX() { return x; }
     public void setX(int x) { this.x = x; }
+=======
+    public int getX() { 
+    	return x; 
+    }
+    
+    public void setX(int x) { 
+    	this.x = x; 
+    }
+   
+    public int getY() { 
+    	return y;
+    }
+    
+    public void setY(int y) { 
+    	this.y = y;
+    }
+>>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 
     public int getY() { return y; }
     public void setY(int y) { this.y = y; }

@@ -99,16 +99,22 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			g.drawString("" + level, 673, 25);
 			g.drawString("" + totalMove, 658, 55);
 			for (Card card : cards) {
+<<<<<<< HEAD
 				card.paint(g);
 			}
 		} else {
 			background.paint(g);
+=======
+                card.paint(g);
+            }
+		}
+		else{
+			background.paint(g);  
+>>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 		}
 		if (gameOver) { 
 			gameOverBackGround.paint(g);
 		}  
-		
-		
 	}
 	
 	public void loseBackground() {
@@ -305,8 +311,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//reset
 		card1 = null;
 		card2 = null;
-		if(checkedWin()){
-			newLevel();
+		int currLevel = level;
+		if (checkedWin()) {
+			if (currLevel == 3) {
+				gameOver = true;
+			} else {
+				newLevel();
+			}
 		}
 		
 		
@@ -353,7 +364,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			
 		}
 		else if(level == 3 && usedCards.size() == 36){
-			level = 1;
 			return true;
 		}
 		return false;
@@ -404,7 +414,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
+<<<<<<< HEAD
 					
+=======
+>>>>>>> branch 'lucy-branch' of https://github.com/lucyytrann/OceanMatchingGame.git
 					System.out.println(totalMove);
 				}
 				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
@@ -417,9 +430,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
 							((Timer)e.getSource()).stop();
-							if (totalMove <= 0 && !checkedWin()) {
-								gameOver = true;
-							}
 						} 
 					});
 					t.setRepeats(false);
