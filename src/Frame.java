@@ -332,13 +332,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 
 		if(level == 1){
-			totalMove = 20;
+			totalMove = 10;
 		}
 		else if(level == 2){
-			totalMove = 40;
+			totalMove = 30;
 		}
 		else if(level == 3){
-			totalMove = 80;
+			totalMove = 60;
 		}
 	}
 
