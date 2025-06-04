@@ -44,7 +44,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 25);
-	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
+	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("background.wav", true);
+	SimpleAudioPlayer clickMusic = new SimpleAudioPlayer("move.wav", false);
+	SimpleAudioPlayer matchedMusic = new SimpleAudioPlayer("match.wav", false);
+	SimpleAudioPlayer winMusic = new SimpleAudioPlayer("win.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
 
@@ -108,6 +111,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		if (gameOver) { 
 			gameOverBackGround.paint(g);
+			winMusic.play();
 		}  
 		if(gameLose){
 			loseGameBackGround.paint(g);
@@ -295,6 +299,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	private void checkedMatching(){
 		if (card1.getName().equals(card2.getName()) && card1 != card2){ //this to prevent the layer click the same card twice
 			System.out.println("Matching check!");
+			matchedMusic.play();
+			matchedMusic = new SimpleAudioPlayer("match.wav", false);
 			usedCards.add(card1);
 			usedCards.add(card2);
 		}
@@ -335,13 +341,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 
 		if(level == 1){
-			totalMove = 20;
+			totalMove = 10;
 		}
 		else if(level == 2){
-			totalMove = 40;
+			totalMove = 30;
 		}
 		else if(level == 3){
-			totalMove = 80;
+			totalMove = 60;
 		}
 	}
 
@@ -407,12 +413,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				if(card1 == null){ //if the 1st card hasn't selected yet,
 					//then the first card is the card that we selected 
 					card1 = card; 
+					clickMusic = new SimpleAudioPlayer("move.wav", false);
+					clickMusic.play();
 					card1.switchDir(); // flip it
 					System.out.println(totalMove);
 				}
 				else if(card1 != null && card2 == null){ //if the first card already selected,
 					//then the second card is the card that we select after 
 					card2 = card;
+					clickMusic = new SimpleAudioPlayer("move.wav", false);
+					clickMusic.play();
 					card2.switchDir(); //flip
 					totalMove--;
 					System.out.println(totalMove);
@@ -458,6 +468,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		else if(arg0.getKeyCode() == 32){
 			if(gameOver){
+				resetGame();
+			}
+			if(gameLose){
 				resetGame();
 			}
 		}
