@@ -404,12 +404,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
 
                //Check to see is it matching or not
-				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
+				if(card1 == null){ //if the 1st card hasn't selected yet,
+					//then the first card is the card that we selected 
 					card1 = card; 
 					card1.switchDir(); // flip it
 					System.out.println(totalMove);
 				}
-				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
+				else if(card1 != null && card2 == null){ //if the first card already selected,
+					//then the second card is the card that we select after 
 					card2 = card;
 					card2.switchDir(); //flip
 					totalMove--;
