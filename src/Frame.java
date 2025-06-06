@@ -77,6 +77,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Move move = new Move();
 	Home home = new Home();
 	GameOver gameOverBackGround = new GameOver();
+
+
 	LoseGame loseGameBackGround = new LoseGame();
 	//frame width/height
 	int width = 700;
@@ -142,6 +144,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		resetGame = false;
 		gameOver = false;
 		changeBackground = false;
+
 		gameLose = false;
 	}
 	
@@ -410,32 +413,37 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void mousePressed(MouseEvent m) {
 		int mouseX = m.getX();
 		int mouseY = m.getY();
-
+		
+		
+		//checks whether if the home icon on the top corner is pressed
+		//if it is pressed then the game is reset and user is sent to front page
 		if (mouseX >= home.getX() && mouseX <= home.getX() + home.getWidth() &&
                 mouseY >= home.getY() + 30 && mouseY <= home.getY() + home.getHeight() + 30){
 					resetGame();
 		}
 
 		for (Card card : cards) {
-            int cardX = card.getX();
-            int cardY = card.getY();
+            int cardX = card.getX(); //gets first card
+            int cardY = card.getY(); //gets second card
             if (mouseX >= cardX && mouseX <= cardX + card.getWidth() &&
                 mouseY >= cardY + 30 && mouseY <= cardY + card.getHeight() + 30) {
 
                //Check to see is it matching or not
-				if(card1 == null){ //if the 1st card hasn't selected yet, then the first card is the card that we selected 
+				if(card1 == null){ //if the 1st card hasn't selected yet,
+					//then the first card is the card that we selected 
 					card1 = card; 
-					clickMusic = new SimpleAudioPlayer("move.wav", false);
+					clickMusic = new SimpleAudioPlayer("move.wav", false); //music when pressed
 					clickMusic.play();
 					card1.switchDir(); // flip it
 					System.out.println(totalMove);
 				}
-				else if(card1 != null && card2 == null){ //if the first card already selected, then the second card is the card that we select after 
+				else if(card1 != null && card2 == null){ //if the first card already selected,
+					//then the second card is the card that we select after 
 					card2 = card;
 					clickMusic = new SimpleAudioPlayer("move.wav", false);
 					clickMusic.play();
 					card2.switchDir(); //flip
-					totalMove--;
+					totalMove--; //reduces the number of moves available
 					System.out.println(totalMove);
 					//Add the delay timer (Chatgpt helper method heheheheheheh <333333)
 					Timer t = new Timer(1000, new ActionListener() {
@@ -472,15 +480,22 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
 		
+		
+		//checks if the user pressed the enter key
+		//if they did then we know the user is on first level 
+		//and we send them to the next level
 		if(arg0.getKeyCode() == 10 ) {
 			level = 1;
 			newLevel();
 			changeBackground();
 		}
+		//checks if the user want to restart the game by pressing the space key
+		//then game goes to the front page
 		else if(arg0.getKeyCode() == 32){
 			if(gameOver){
 				resetGame();
 			}
+			//checks if the user lost and if they do then game reset
 			if(gameLose){
 				resetGame();
 			}
