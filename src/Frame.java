@@ -52,6 +52,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 //	Music soundHaha = new Music("haha.wav", false);
 
 
+	//Create object for each character
 	Background background = new Background();
 	Nimo nimo = new Nimo();
 	Octopus octopus = new Octopus();
@@ -90,9 +91,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
+		//if reset game then it would change to the home back ground
 		if (resetGame) {
 			background.paint(g);  
-		} else if (changeBackground) {
+		} else if (changeBackground) { //when homepage change to the main page, the cards uploads and other stuff 
 			background2.paint(g);
 			home.paint(g);
 			levels.paint(g);
@@ -109,11 +111,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		else{
 			background.paint(g);  
 		}
-		if (gameOver) { 
+		if (gameOver) {  //if game is over (aka gam is win) then the win page is upload and there would be a music to show that you won
 			gameOverBackGround.paint(g);
 			winMusic.play();
 		}  
-		if(gameLose){
+		if(gameLose){ //other wise, if game is loe then the lose page is upload. 
 			loseGameBackGround.paint(g);
 		}
 	}
@@ -122,6 +124,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		changeBackground = true;
 	}
 
+
+	//this is to reset everything to return back to the original 
+	//set card to null
+	//set every boolean statement to false
+	//clear all the arraylist that contains cards object and cards' location. 
+	//set back to leve 1 and move that corresponding to level 1
 	public void resetGame(){
 		cards.clear();
 		usedCards.clear();
@@ -173,8 +181,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
-	private void createCards() {
+
+	private void createCards() { //create number of cards corresponding to the level. 
 		if(level == 1){
+			//8 cards in level 1
 			cards.add(new Dolphin()); 
 			cards.add(new Dolphin());
 			cards.add(new BlueWhale()); 
@@ -185,6 +195,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			cards.add(new Dory());
 		}
 		else if(level == 2){
+			//16 cards in level 2
 			cards.add(new Dolphin()); 
 			cards.add(new Dolphin());
 			cards.add(new BlueWhale()); 
@@ -203,6 +214,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			cards.add(new Nimo());
 		}
 		else if (level == 3){
+			//36 cards in level 3
 			cards.add(new Dolphin()); 
 			cards.add(new Dolphin());
 			cards.add(new BlueWhale()); 
@@ -322,7 +334,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}	
 	}
 
-	private void newLevel(){
+	private void newLevel(){ //new level method
+		//clear arraylist that contain card from previous level
+		//regenerate card 
+		//shuffle card agian
 		emptyUsedCards();
 		cards.clear();
 		shuffledPositions.clear();
@@ -340,6 +355,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			}
 		}
 
+		//set different number of move corresponding with the level 
 		if(level == 1){
 			totalMove = 10;
 		}
@@ -369,7 +385,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 
 
-	private void emptyUsedCards(){ 
+	private void emptyUsedCards(){ //empty the array list that contain all the cards has been checked
 		for (int i = usedCards.size() - 1; i >= 0; i--) {
 			usedCards.remove(i);
 		}
@@ -430,11 +446,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 					totalMove--; //reduces the number of moves available
 					System.out.println(totalMove);
 					//Add the delay timer (Chatgpt helper method heheheheheheh <333333)
-					Timer t = new Timer(1000, new ActionListener() {
+					Timer t = new Timer(1000, new ActionListener() { 
+						//delay timer that help the player to see 2 cards that they choose before actually checking if they are matching or not
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
 							((Timer)e.getSource()).stop();
-							if (totalMove <= 0 && !checkedWin()) {
+							if (totalMove <= 0 && !checkedWin()) { //if total move = 0 and all the cards have not been flipped 
 								gameLose = true;
 							}
 						} 
