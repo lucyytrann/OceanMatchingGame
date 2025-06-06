@@ -446,11 +446,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 					totalMove--; //reduces the number of moves available
 					System.out.println(totalMove);
 					//Add the delay timer (Chatgpt helper method heheheheheheh <333333)
-					Timer t = new Timer(1000, new ActionListener() {
+					Timer t = new Timer(1000, new ActionListener() { 
+						//delay timer that help the player to see 2 cards that they choose before actually checking if they are matching or not
 						public void actionPerformed(ActionEvent e) {
 							checkedMatching();
 							((Timer)e.getSource()).stop();
-							if (totalMove <= 0 && !checkedWin()) {
+							if (totalMove <= 0 && !checkedWin()) { //if total move = 0 and all the cards have not been flipped 
 								gameLose = true;
 							}
 						} 
