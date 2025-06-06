@@ -14,7 +14,7 @@ public class LoseGame{
 	int width, height;
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1;		//change to scale image
+	double scaleWidth = 1;			//change to scale image
 	double scaleHeight = 1; 		//change to scale image
 	
 
