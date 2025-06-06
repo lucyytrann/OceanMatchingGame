@@ -111,11 +111,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		else{
 			background.paint(g);  
 		}
-		if (gameOver) {  //if game is over (aka gam is win) then the win page is upload and there would be a music to show that you won
+		if (gameOver) {  //if game is over (aka game is win) then the win page is upload and there would be a music to show that you won
 			gameOverBackGround.paint(g);
 			winMusic.play();
 		}  
-		if(gameLose){ //other wise, if game is loe then the lose page is upload. 
+		if(gameLose){ //other wise, if game is lose then the lose page is upload. 
 			loseGameBackGround.paint(g);
 		}
 	}
@@ -129,7 +129,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//set card to null
 	//set every boolean statement to false
 	//clear all the arraylist that contains cards object and cards' location. 
-	//set back to leve 1 and move that corresponding to level 1
+	//set back to level 1 and move that corresponding to level 1
 	public void resetGame(){
 		cards.clear();
 		usedCards.clear();
